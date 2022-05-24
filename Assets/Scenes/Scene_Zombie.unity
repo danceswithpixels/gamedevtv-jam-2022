@@ -207,6 +207,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &588588367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5227725337143788986, guid: 4f817270473324863b1e154700048bcf, type: 3}
+  m_PrefabInstance: {fileID: 5227725337719279423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140779476
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +543,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1044333092573937723, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333092891285387, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333092951989534, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333092991704645, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333093014798821, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333093281187997, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1044333093294055420, guid: d669a1132c249934292dc461472dab25, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -586,6 +615,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patient
       objectReference: {fileID: 0}
+    - target: {fileID: 1044333093294055421, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333093506733395, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: zombie
+      value: 
+      objectReference: {fileID: 588588367}
     - target: {fileID: 1044333093506733395, guid: d669a1132c249934292dc461472dab25, type: 3}
       propertyPath: patientAlive
       value: 1
@@ -593,6 +630,18 @@ PrefabInstance:
     - target: {fileID: 1044333093506733395, guid: d669a1132c249934292dc461472dab25, type: 3}
       propertyPath: expirationTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333093506733400, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333093589931439, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044333094021754458, guid: d669a1132c249934292dc461472dab25, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d669a1132c249934292dc461472dab25, type: 3}
