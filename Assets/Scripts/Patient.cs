@@ -10,7 +10,7 @@ public class Patient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numNeeds = Random.Range(1,3);
+        numNeeds = Random.Range(1,4);
     }
 
     // Update is called once per frame
@@ -19,9 +19,9 @@ public class Patient : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && numNeeds > 0) {
             resetNeed();
         }
-        
+
         if (need == null && numNeeds > 0) {
-            need = needs[Random.Range(0, needs.Length - 1)];
+            need = needs[Random.Range(0, needs.Length)];
             need.SetActive(true);
         }
     }
