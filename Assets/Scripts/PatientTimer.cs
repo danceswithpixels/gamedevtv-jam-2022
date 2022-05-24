@@ -20,16 +20,18 @@ public class PatientTimer : MonoBehaviour
     void Start()
     {
         patientAlive = true;
-        timerValue = expirationTime;
         patientScript = patient.GetComponent<Patient>();
+        expirationTime *= patientScript.getNumNeeds();
+        timerValue = expirationTime;
+        // Debug.Log(timerValue + " " + patientScript.getNumNeeds());
     }
 
     // Update is called once per frame
     void Update()
     {
         timerValue -= Time.deltaTime;
-
-        if (patientAlive && patientScript.getNeed() != null) {
+        Debug.Log(patientAlive + " " + patientScript.getNumNeeds());
+        if (patientAlive && patientScript.getNumNeeds() > 0) {
             if (timerValue > 0) {
                 fillFraction = timerValue / expirationTime;
             } else {
