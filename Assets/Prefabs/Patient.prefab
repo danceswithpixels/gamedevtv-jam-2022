@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee6c23132ad33d4b9693eb5426b361b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patient: {fileID: 1044333093294055421}
   floatStrength: 0.1
   floatSpeed: 10
 --- !u!1 &1044333093281187997
@@ -527,7 +528,7 @@ GameObject:
   - component: {fileID: 1044333093294055420}
   - component: {fileID: 1044333093294055411}
   m_Layer: 0
-  m_Name: Patient 1
+  m_Name: Patient
   m_TagString: Patient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,7 +688,6 @@ MonoBehaviour:
   timerImage: {fileID: 1044333093281187987}
   patient: {fileID: 1044333093294055421}
   zombie: {fileID: 5491845652462934243, guid: b316aa67252e79e4ebd7851d2ff7be3b, type: 3}
-  patientNeeds: {fileID: 1044333093014798821}
   patientAlive: 0
   fillFraction: 0
 --- !u!1 &1044333093589931439
