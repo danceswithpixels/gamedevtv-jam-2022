@@ -726,7 +726,7 @@ MonoBehaviour:
   expirationTime: 10
   timerImage: {fileID: 1044333093281187987}
   patient: {fileID: 1044333093294055421}
-  zombie: {fileID: 0}
+  zombie: {fileID: 5227725337143788986, guid: 4f817270473324863b1e154700048bcf, type: 3}
   patientAlive: 1
   fillFraction: 0
 --- !u!1 &1044333093589931439
