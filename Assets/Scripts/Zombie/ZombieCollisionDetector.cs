@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Pathfinding;
 
-public class ZombieColissionDetector : MonoBehaviour
+public class ZombieCollisionDetector : MonoBehaviour
 {
     CapsuleCollider2D zombieCollider;
 
