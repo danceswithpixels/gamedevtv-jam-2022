@@ -23,14 +23,14 @@ public class ZombieAI : MonoBehaviour
 
     public GameObject FindClosestEnemy()
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("Patient");
+        GameObject[] gameObjects;
+        gameObjects = GameObject.FindGameObjectsWithTag("Patient");
 
         //TODO: Add doctor to array
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
-        foreach (GameObject go in gos)
+        foreach (GameObject go in gameObjects)
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
