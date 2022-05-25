@@ -7,19 +7,20 @@ public class Patient : MonoBehaviour
     [SerializeField] GameObject[] needs;
     GameObject need;
     int numNeeds;
+    
+    void Awake() {
+        numNeeds = Random.Range(1,4);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        numNeeds = Random.Range(1,4);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && numNeeds > 0) {
-            resetNeed();
-        }
-
         if (need == null && numNeeds > 0) {
             need = needs[Random.Range(0, needs.Length)];
             need.SetActive(true);
