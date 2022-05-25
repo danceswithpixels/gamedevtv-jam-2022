@@ -26,15 +26,15 @@ public class ItemSpawns : MonoBehaviour
     }
 
     void spawnItems() {
-        List<GameObject> availableSpawns = new List<GameObject>(spawnTrays);
+        List<GameObject> spawns = new List<GameObject>(spawnTrays);
+        List<GameObject> availableSpawns = new List<GameObject>();
+
+        Debug.Log(spawns.Count);
 
         // Remove spawns from availableSpawns which already have items on them
-        foreach (GameObject spawn in availableSpawns) {
-            CircleCollider2D spawnCircleCollider2D = spawn.GetComponent<CircleCollider2D>();
-            Debug.Log(spawnCircleCollider2D);
-            if (spawnCircleCollider2D.IsTouchingLayers(LayerMask.GetMask("Item"))) {
-                Debug.Log("removal");
-                availableSpawns.Remove(spawn);
+        foreach (GameObject spawn in spawns) {
+            if (spawn.GetComponent<Spawn>().spawnAvailable) {
+                availableSpawns.Add(spawn);
             }
         }
 
@@ -45,7 +45,6 @@ public class ItemSpawns : MonoBehaviour
             while (availableSpawns.Count > 0 && GameObject.FindGameObjectsWithTag(item.tag).Length < maxDuplicates) {
                 GameObject spawn = availableSpawns[Random.Range(0, availableSpawns.Count)];
                 Instantiate(tagToItemMap[item.tag], spawn.transform.position, transform.rotation);
-                // Debug.Log("availableSpawns.Count: " + availableSpawns.Count);
                 availableSpawns.Remove(spawn);
             }
         }
