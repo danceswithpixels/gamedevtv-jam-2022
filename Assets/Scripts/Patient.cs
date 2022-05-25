@@ -8,9 +8,13 @@ public class Patient : MonoBehaviour
     GameObject need;
     int numNeeds;
     // Start is called before the first frame update
+    void Awake() {
+        numNeeds = Random.Range(1,4);
+    }
+    
     void Start()
     {
-        numNeeds = Random.Range(1,4);
+        
     }
 
     // Update is called once per frame
