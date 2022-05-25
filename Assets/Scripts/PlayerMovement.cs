@@ -11,9 +11,8 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myBodyCollider;
     GameObject touchingItem;
     bool holdingItem;
-    PlayerItem playerItem;
 
-    [SerializeField] GameObject item;
+    [SerializeField] Transform item;
     [SerializeField] float walkSpeed = 5;
 
     // Start is called before the first frame update
@@ -24,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
-        playerItem = item.GetComponent<PlayerItem>();
+
     }
 
     // Update is called once per frame
@@ -41,15 +40,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Walk()
     {
-        Vector2 playerVelocity= new Vector2(moveInput.x * walkSpeed, myRigidBody.velocity.y);
+        Vector2 playerVelocity= new Vector2(moveInput.x * walkSpeed, moveInput.y*walkSpeed);
         myRigidBody.velocity = playerVelocity;
         SetWalkingAnimation();
     }
 
     void SetWalkingAnimation()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("isWalking", playerHasHorizontalSpeed);
+        bool playerHasSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon || Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
+        myAnimator.SetBool("isWalking", playerHasSpeed);
     }
 
     void FlipSprite() 
@@ -69,21 +68,36 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "nSaw" && !holdingItem)
+        {
+            touchingItem = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+
+        if (!holdingItem) 
+        {
+            touchingItem = null;
+        }
+        
+    }
+
     void OnPickUp()
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
         {
             Debug.Log("Can pick up");
             holdingItem = !holdingItem;
-            playerItem.SetSprite(touchingItem.GetComponent<SpriteRenderer>());
-            Destroy(touchingItem);
+            touchingItem.transform.SetParent(gameObject.transform);
+            touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         } else if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && holdingItem)
         {
             Debug.Log("Can drop up");
             holdingItem = !holdingItem;
-            playerItem.RemoveSprite();
-            // Instantiate the item on the ground in front of the player?
-            Instantiate(touchingItem, myBodyCollider.transform.position, transform.rotation);
+            touchingItem.transform.SetParent(null);
+            touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             touchingItem = null;
         }
     }
