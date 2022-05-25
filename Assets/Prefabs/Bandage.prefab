@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 687674515395368258}
   m_Layer: 6
   m_Name: Bandage
-  m_TagString: nBandage
+  m_TagString: iBandage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

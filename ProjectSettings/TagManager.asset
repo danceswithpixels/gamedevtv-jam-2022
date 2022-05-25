@@ -11,6 +11,12 @@ TagManager:
   - nSaw
   - nSyringe
   - Zombie
+  - Spawn
+  - iBandage
+  - iBone
+  - iMedkit
+  - iSaw
+  - iSyringe
   layers:
   - Default
   - TransparentFX

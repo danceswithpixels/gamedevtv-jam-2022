@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4799314100629001208}
   m_Layer: 6
   m_Name: Medkit
-  m_TagString: nMedkit
+  m_TagString: iMedkit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
