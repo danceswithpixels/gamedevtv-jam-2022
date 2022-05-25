@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 5227725337143788983}
   - component: {fileID: 5227725337143788984}
   - component: {fileID: 5227725337143788985}
-  - component: {fileID: 5227725337143788982}
-  - component: {fileID: 5227725337143788981}
-  - component: {fileID: 5227725337143788980}
   - component: {fileID: 5227725337143788979}
+  - component: {fileID: 5227725337143788981}
+  - component: {fileID: 588588375}
+  - component: {fileID: 2063904978866924796}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.4
+  radius: 0.52
   height: 2
   canMove: 1
   maxSpeed: 3
@@ -102,13 +102,13 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 0.6
-  pickNextWaypointDist: 1.2
+  pickNextWaypointDist: 1.1
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &5227725337143788982
+--- !u!114 &5227725337143788979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,11 +117,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5227725337143788986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Script: {fileID: 11500000, guid: 82645da600209458e98f618cefa467bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
 --- !u!70 &5227725337143788981
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,7 +136,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.096666336}
   m_Size: {x: 0.5, y: 0.69926023}
   m_Direction: 0
---- !u!50 &5227725337143788980
+--- !u!50 &588588375
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -157,9 +155,9 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5227725337143788979
+--- !u!114 &2063904978866924796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5227725337143788986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82645da600209458e98f618cefa467bc, type: 3}
+  m_Script: {fileID: 11500000, guid: ed980642f1bf1464da831a4f2c17ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5227725337542927392
