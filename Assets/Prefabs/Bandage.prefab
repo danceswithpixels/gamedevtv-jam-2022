@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4720960494697638233}
   - component: {fileID: 687674515395368258}
   - component: {fileID: 4986721927096359076}
+  - component: {fileID: 3819907350149284477}
   m_Layer: 6
   m_Name: Bandage
-  m_TagString: nBandage
+  m_TagString: iBandage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +96,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -117,3 +118,24 @@ PolygonCollider2D:
       - {x: -0.17308947, y: -0.48595068}
       - {x: 0.46023756, y: 0.17546654}
       - {x: 0.3869105, y: 0.43881163}
+--- !u!50 &3819907350149284477
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799956541201554268}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
