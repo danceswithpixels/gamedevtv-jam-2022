@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4720960494697638233}
   - component: {fileID: 687674515395368258}
+  - component: {fileID: 4986721927096359076}
   m_Layer: 6
   m_Name: Bandage
   m_TagString: nBandage
@@ -84,3 +85,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &4986721927096359076
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799956541201554268}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.91, y: 0.93}
+    newSize: {x: 0.91, y: 0.93}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.11022864, y: 0.45452467}
+      - {x: -0.04496336, y: 0.26790658}
+      - {x: -0.45499998, y: -0.17355637}
+      - {x: -0.41309887, y: -0.42309853}
+      - {x: -0.17308947, y: -0.48595068}
+      - {x: 0.46023756, y: 0.17546654}
+      - {x: 0.3869105, y: 0.43881163}

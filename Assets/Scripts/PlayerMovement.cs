@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Animator myAnimator;
-    CircleCollider2D myHandCollider;
+    CapsuleCollider2D myBodyCollider;
     GameObject touchingItem;
     bool holdingItem;
+    PlayerItem playerItem;
 
+    [SerializeField] GameObject item;
     [SerializeField] float walkSpeed = 5;
 
     // Start is called before the first frame update
@@ -20,8 +22,9 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Start");
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myHandCollider = GetComponent<CircleCollider2D>();
+        myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
+        playerItem = item.GetComponent<PlayerItem>();
     }
 
     // Update is called once per frame
@@ -60,19 +63,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (myHandCollider.IsTouchingLayers(LayerMask.GetMask("Item"))) {
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
+        {
             touchingItem = other.gameObject;
         }
     }
 
     void OnPickUp()
     {
-        if (myHandCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
         {
-            
-        } else if (!myHandCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && holdingItem)
+            Debug.Log("Can pick up");
+            holdingItem = !holdingItem;
+            playerItem.SetSprite(touchingItem.GetComponent<SpriteRenderer>());
+            Destroy(touchingItem);
+        } else if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && holdingItem)
         {
-
+            Debug.Log("Can drop up");
+            holdingItem = !holdingItem;
+            playerItem.RemoveSprite();
+            // Instantiate the item on the ground in front of the player?
+            Instantiate(touchingItem, myBodyCollider.transform.position, transform.rotation);
+            touchingItem = null;
         }
     }
 }
