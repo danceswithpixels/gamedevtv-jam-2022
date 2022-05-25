@@ -21,10 +21,6 @@ public class Patient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && numNeeds > 0) {
-            resetNeed();
-        }
-
         if (need == null && numNeeds > 0) {
             need = needs[Random.Range(0, needs.Length)];
             need.SetActive(true);
