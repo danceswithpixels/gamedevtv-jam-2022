@@ -11,12 +11,13 @@ public class ZombieGraphics : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
 
     void Update()
     {
         animator.SetBool("isRunning", ZombieHasHorizontalSpeed());
-        
+
         FlipSprite();
     }
 
