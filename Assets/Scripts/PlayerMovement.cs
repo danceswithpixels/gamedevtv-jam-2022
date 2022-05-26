@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("Touching Patient");
             currentPatient = other.gameObject.GetComponent<Patient>();
-            Debug.Log("Patient needs: "+ currentPatient.getNumNeeds());
         }
     }
 
@@ -115,18 +114,12 @@ public class PlayerMovement : MonoBehaviour
         
             } else if (holdingItem)
             {
-                if (currentPatient != null) 
+                if (currentPatient != null && currentPatient.getNeed().tag == touchingItem.tag) 
                 {
-                    Debug.Log(currentPatient.getNeed().tag);
-                    Debug.Log(touchingItem.tag);
-                    if (currentPatient.getNeed().tag == touchingItem.tag)
-                    {
-                        Debug.Log("Apply item to patient");
-                        currentPatient.resetNeed();
-                        Destroy(touchingItem);
-                        Debug.Log(touchingItem);
-
-                    }
+                    Debug.Log("Apply item to patient");
+                    currentPatient.resetNeed();
+                    Destroy(touchingItem);
+                    Debug.Log(touchingItem);
                 } else 
                 {
                     Debug.Log("Can drop up");
