@@ -11,9 +11,12 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myBodyCollider;
     GameObject touchingItem;
     bool holdingItem;
+    Patient currentPatient;
 
     [SerializeField] Transform item;
     [SerializeField] float walkSpeed = 5;
+
+    static ArrayList itemTags = new ArrayList{"iBandage","iBone","iMedkit","iSaw","iSyringe"};
 
     // Start is called before the first frame update
     void Start()
@@ -66,14 +69,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
         {
-            touchingItem = other.gameObject;
+            Debug.Log("Touching Patient");
+            currentPatient = other.gameObject.GetComponent<Patient>();
+            Debug.Log("Patient needs: "+ currentPatient.getNumNeeds());
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other) {
+        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
+        {
+            Debug.Log("Leaving Patient");
+            currentPatient = null;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "iSaw" && !holdingItem)
+        if (itemTags.Contains(other.tag) && !holdingItem)
         {
             touchingItem = other.gameObject;
         }
@@ -94,19 +107,35 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!holdingItem) 
             {
-                Debug.Log("Can pick up");
-                holdingItem = !holdingItem;
-                touchingItem.transform.SetParent(gameObject.transform);
-                touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                    Debug.Log("Can pick up");
+                    holdingItem = !holdingItem;
+                    touchingItem.transform.SetParent(gameObject.transform);
+                    touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
                 
+        
             } else if (holdingItem)
             {
-                Debug.Log("Can drop up");
-                holdingItem = !holdingItem;
-                touchingItem.transform.SetParent(null);
-                touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                touchingItem = null;
+                if (currentPatient != null) 
+                {
+                    Debug.Log(currentPatient.getNeed().tag);
+                    Debug.Log(touchingItem.tag);
+                    if (currentPatient.getNeed().tag == touchingItem.tag)
+                    {
+                        Debug.Log("Apply item to patient");
+                        currentPatient.resetNeed();
+                        Destroy(touchingItem);
+                        Debug.Log(touchingItem);
 
+                    }
+                } else 
+                {
+                    Debug.Log("Can drop up");
+                    touchingItem.transform.SetParent(null);
+                    touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    
+                }
+                holdingItem = !holdingItem;
+                touchingItem = null;
             }
         }
         
