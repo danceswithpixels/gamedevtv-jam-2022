@@ -29,8 +29,6 @@ public class ItemSpawns : MonoBehaviour
         List<GameObject> spawns = new List<GameObject>(spawnTrays);
         List<GameObject> availableSpawns = new List<GameObject>();
 
-        Debug.Log(spawns.Count);
-
         // Remove spawns from availableSpawns which already have items on them
         foreach (GameObject spawn in spawns) {
             if (spawn.GetComponent<Spawn>().spawnAvailable) {
