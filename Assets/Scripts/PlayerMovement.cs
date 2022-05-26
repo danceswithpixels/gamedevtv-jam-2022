@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Walk();
         FlipSprite();
+        if (holdingItem && touchingItem != null) 
+        {
+            touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        }
     }
 
     void OnMove(InputValue value)
@@ -69,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "nSaw" && !holdingItem)
+        if (other.tag == "iSaw" && !holdingItem)
         {
             touchingItem = other.gameObject;
         }
@@ -86,19 +90,25 @@ public class PlayerMovement : MonoBehaviour
 
     void OnPickUp()
     {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
+        if (touchingItem != null) 
         {
-            Debug.Log("Can pick up");
-            holdingItem = !holdingItem;
-            touchingItem.transform.SetParent(gameObject.transform);
-            touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-        } else if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && holdingItem)
-        {
-            Debug.Log("Can drop up");
-            holdingItem = !holdingItem;
-            touchingItem.transform.SetParent(null);
-            touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            touchingItem = null;
+            if (!holdingItem) 
+            {
+                Debug.Log("Can pick up");
+                holdingItem = !holdingItem;
+                touchingItem.transform.SetParent(gameObject.transform);
+                touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                
+            } else if (holdingItem)
+            {
+                Debug.Log("Can drop up");
+                holdingItem = !holdingItem;
+                touchingItem.transform.SetParent(null);
+                touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                touchingItem = null;
+
+            }
         }
+        
     }
 }
