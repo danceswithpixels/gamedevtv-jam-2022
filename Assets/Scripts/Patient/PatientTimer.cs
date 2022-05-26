@@ -48,8 +48,12 @@ public class PatientTimer : MonoBehaviour
             timerImage.fillAmount = fillFraction;
         } else if (patientAlive) {
             if (standUp(patientSprite, getUpCuredSpeed)) {
-                patient.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                aiPath.destination = GameObject.FindGameObjectWithTag("Ambulance").transform.position;
+                if (!patientSprite.GetComponent<Animator>().enabled) {
+                    patient.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    patientSprite.GetComponent<Animator>().enabled = true;
+                    patientSprite.transform.position += new Vector3(0f, 0.1f, 0f);
+                    aiPath.destination = GameObject.FindGameObjectWithTag("Ambulance").transform.position;
+                }
             }
         } else if (!patientAlive) {
             if (standUp(patientSprite, getUpZombieSpeed)) {
