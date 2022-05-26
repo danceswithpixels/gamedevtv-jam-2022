@@ -9,7 +9,8 @@ public class Patient : MonoBehaviour
     int numNeeds;
     
     void Awake() {
-        numNeeds = Random.Range(1,4);
+        // numNeeds = Random.Range(1,4);
+        numNeeds = 0;
     }
 
     // Start is called before the first frame update

@@ -17,6 +17,7 @@ TagManager:
   - iMedkit
   - iSaw
   - iSyringe
+  - Ambulance
   layers:
   - Default
   - TransparentFX
