@@ -6,9 +6,11 @@ using Pathfinding;
 public class ZombieAI : MonoBehaviour
 {
     AIPath aiPath;
+    GameObject player;
 
     void Awake() {
         aiPath = GetComponent<AIPath>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Start()
@@ -18,7 +20,8 @@ public class ZombieAI : MonoBehaviour
 
     void Update()
     {
-        aiPath.destination = FindClosestEnemy().transform.position;
+        aiPath.destination = player.transform.position;
+        // aiPath.destination = FindClosestEnemy().transform.position;
     }
 
     public GameObject FindClosestEnemy()

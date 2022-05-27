@@ -5,29 +5,38 @@ using UnityEngine;
 public class PatientSpawn : MonoBehaviour
 {
     public bool spawnAvailable = true;
+    private int safeZone;
     // Start is called before the first frame update
     void Start()
     {
-        
+        safeZone = FindObjectOfType<PatientSpawnController>().safeZone;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        spawnAvailable = checkSpawnSafety();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("PatientSpawn.OnTriggerEnter2D");
-        if (other.gameObject.layer == LayerMask.NameToLayer("Patient") || other.gameObject.layer == LayerMask.NameToLayer("Zombie")) {
-            spawnAvailable = false;
-        }
-    }
+    public bool checkSpawnSafety()
+    {
+        List<GameObject> zombies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Zombie"));
+        List<GameObject> patients = new List<GameObject>(GameObject.FindGameObjectsWithTag("Patient"));
+        List<GameObject> gameObjects = new List<GameObject>();
+        gameObjects.AddRange(zombies);
+        gameObjects.AddRange(patients);
 
-    private void OnTriggerExit2D(Collider2D other) {
-        Debug.Log("PatientSpawn.OnTriggerExit2D");
-        if (other.gameObject.layer == LayerMask.NameToLayer("Patient") || other.gameObject.layer == LayerMask.NameToLayer("Zombie")) {
-            spawnAvailable = true;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gameObjects)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            Debug.Log(curDistance < safeZone);
+            if (curDistance < safeZone)
+            {
+                return false;
+            }
         }
+        return true;
     }
 }
