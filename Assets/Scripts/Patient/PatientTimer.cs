@@ -50,6 +50,7 @@ public class PatientTimer : MonoBehaviour
             if (standUp(patientSprite, getUpCuredSpeed)) {
                 if (!patientSprite.GetComponent<Animator>().enabled) {
                     patient.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    patient.GetComponent<Rigidbody2D>().freezeRotation = true;
                     patientSprite.GetComponent<Animator>().enabled = true;
                     patientSprite.transform.position += new Vector3(0f, 0.1f, 0f);
                     aiPath.destination = GameObject.FindGameObjectWithTag("Ambulance").transform.position;
