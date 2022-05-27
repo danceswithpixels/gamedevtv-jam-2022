@@ -18,6 +18,8 @@ TagManager:
   - iSaw
   - iSyringe
   - Ambulance
+  - iSpawn
+  - pSpawn
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - Ground
   - Platform
   - Patient
-  - 
+  - Zombie
   - 
   - 
   - 

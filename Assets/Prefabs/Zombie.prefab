@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5227725337143788981}
   - component: {fileID: 588588375}
   - component: {fileID: 2063904978866924796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}

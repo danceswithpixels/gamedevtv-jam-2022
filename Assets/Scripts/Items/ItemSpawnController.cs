@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSpawns : MonoBehaviour
+public class ItemSpawnController : MonoBehaviour
 {
     [SerializeField] int maxDuplicates = 1;
     [SerializeField] GameObject[] items;
-    GameObject[] spawnTrays;
+    GameObject[] itemSpawns;
     Dictionary<string, GameObject> tagToItemMap;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnTrays = GameObject.FindGameObjectsWithTag("Spawn");
+        itemSpawns = GameObject.FindGameObjectsWithTag("iSpawn");
         tagToItemMap = new Dictionary<string, GameObject>();
         foreach (GameObject item in items) {
             tagToItemMap.Add(item.tag, item);
@@ -26,12 +26,12 @@ public class ItemSpawns : MonoBehaviour
     }
 
     void spawnItems() {
-        List<GameObject> spawns = new List<GameObject>(spawnTrays);
+        List<GameObject> spawns = new List<GameObject>(itemSpawns);
         List<GameObject> availableSpawns = new List<GameObject>();
 
         // Remove spawns from availableSpawns which already have items on them
         foreach (GameObject spawn in spawns) {
-            if (spawn.GetComponent<Spawn>().spawnAvailable) {
+            if (spawn.GetComponent<ItemSpawn>().spawnAvailable) {
                 availableSpawns.Add(spawn);
             }
         }
