@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1044333092573937721}
   m_Layer: 0
   m_Name: Needs (Bone)
-  m_TagString: nBone
+  m_TagString: iBone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1044333092891285385}
   m_Layer: 0
   m_Name: Needs (Saw)
-  m_TagString: nSaw
+  m_TagString: iSaw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1044333092951989532}
   m_Layer: 0
   m_Name: Needs (Medkit)
-  m_TagString: nMedkit
+  m_TagString: iMedkit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044333092991704645}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 1044333093294055411}
   - component: {fileID: 1551244767}
   - component: {fileID: 1551244768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Patient
   m_TagString: Patient
   m_Icon: {fileID: 0}
@@ -727,6 +727,9 @@ MonoBehaviour:
   timerImage: {fileID: 1044333093281187987}
   patient: {fileID: 1044333093294055421}
   zombie: {fileID: 5227725337143788986, guid: 4f817270473324863b1e154700048bcf, type: 3}
+  patientSprite: {fileID: 1044333092991704645}
+  getUpZombieSpeed: 10
+  getUpCuredSpeed: 30
   patientAlive: 1
   fillFraction: 0
 --- !u!1 &1044333093589931439
@@ -741,7 +744,7 @@ GameObject:
   - component: {fileID: 1044333093589931437}
   m_Layer: 0
   m_Name: Needs (Syringe)
-  m_TagString: nSyringe
+  m_TagString: iSyringe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -825,7 +828,7 @@ GameObject:
   - component: {fileID: 1044333094021754456}
   m_Layer: 0
   m_Name: Needs (Bandage)
-  m_TagString: nBandage
+  m_TagString: iBandage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

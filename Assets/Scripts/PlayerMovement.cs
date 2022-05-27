@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D myBodyCollider;
     GameObject touchingItem;
     bool holdingItem;
-    PlayerItem playerItem;
+    Patient currentPatient;
 
-    [SerializeField] GameObject item;
+    [SerializeField] Transform item;
     [SerializeField] float walkSpeed = 5;
+
+    static ArrayList itemTags = new ArrayList{"iBandage","iBone","iMedkit","iSaw","iSyringe"};
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
-        playerItem = item.GetComponent<PlayerItem>();
+
     }
 
     // Update is called once per frame
@@ -32,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Walk();
         FlipSprite();
+        if (holdingItem && touchingItem != null) 
+        {
+            touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        }
     }
 
     void OnMove(InputValue value)
@@ -41,15 +47,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Walk()
     {
-        Vector2 playerVelocity= new Vector2(moveInput.x * walkSpeed, myRigidBody.velocity.y);
+        Vector2 playerVelocity= new Vector2(moveInput.x * walkSpeed, moveInput.y*walkSpeed);
         myRigidBody.velocity = playerVelocity;
         SetWalkingAnimation();
     }
 
     void SetWalkingAnimation()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("isWalking", playerHasHorizontalSpeed);
+        bool playerHasSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon || Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
+        myAnimator.SetBool("isWalking", playerHasSpeed);
     }
 
     void FlipSprite() 
@@ -63,28 +69,68 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
+        {
+            Debug.Log("Touching Patient");
+            currentPatient = other.gameObject.GetComponent<Patient>();
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other) {
+        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
+        {
+            Debug.Log("Leaving Patient");
+            currentPatient = null;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (itemTags.Contains(other.tag) && !holdingItem)
         {
             touchingItem = other.gameObject;
         }
     }
 
-    void OnPickUp()
-    {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && !holdingItem) 
+    void OnTriggerExit2D(Collider2D other) {
+
+        if (!holdingItem) 
         {
-            Debug.Log("Can pick up");
-            holdingItem = !holdingItem;
-            playerItem.SetSprite(touchingItem.GetComponent<SpriteRenderer>());
-            Destroy(touchingItem);
-        } else if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Item")) && holdingItem)
-        {
-            Debug.Log("Can drop up");
-            holdingItem = !holdingItem;
-            playerItem.RemoveSprite();
-            // Instantiate the item on the ground in front of the player?
-            Instantiate(touchingItem, myBodyCollider.transform.position, transform.rotation);
             touchingItem = null;
         }
+        
+    }
+
+    void OnPickUp()
+    {
+        if (touchingItem != null) 
+        {
+            if (!holdingItem) 
+            {
+                    Debug.Log("Can pick up");
+                    holdingItem = !holdingItem;
+                    touchingItem.transform.SetParent(gameObject.transform);
+                    touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                
+        
+            } else if (holdingItem)
+            {
+                if (currentPatient != null && currentPatient.getNeed().tag == touchingItem.tag) 
+                {
+                    Debug.Log("Apply item to patient");
+                    currentPatient.resetNeed();
+                    Destroy(touchingItem);
+                    Debug.Log(touchingItem);
+                } else 
+                {
+                    Debug.Log("Can drop up");
+                    touchingItem.transform.SetParent(null);
+                    touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    
+                }
+                holdingItem = !holdingItem;
+                touchingItem = null;
+            }
+        }
+        
     }
 }
