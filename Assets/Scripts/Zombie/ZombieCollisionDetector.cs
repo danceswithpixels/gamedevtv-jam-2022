@@ -26,7 +26,7 @@ public class ZombieCollisionDetector : MonoBehaviour
                 //Death screen
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else if (other.gameObject.tag == "Patient") {
-            other.gameObject.GetComponentInChildren<PatientTimer>().timerValue = 1f;
+            other.gameObject.GetComponentInChildren<PatientTimer>().patientAlive = false;
         }
     }
 

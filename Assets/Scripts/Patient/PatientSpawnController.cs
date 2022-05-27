@@ -6,6 +6,7 @@ public class PatientSpawnController : MonoBehaviour
 {
     [SerializeField] int maxPatients = 1;
     [SerializeField] GameObject patientPrefab;
+    public int safeZone = 20;
     GameObject[] patientSpawns;
     // Start is called before the first frame update
     void Start()
