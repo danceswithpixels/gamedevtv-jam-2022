@@ -27,8 +27,8 @@ TagManager:
   - UI
   - Item
   - Ground
+  - Platform
   - Patient
-  - 
   - 
   - 
   - 
@@ -54,4 +54,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1827847015
+    locked: 0
+  - name: Background Objects
+    uniqueID: 3975976159
+    locked: 0
+  - name: Platforms
+    uniqueID: 2430767885
+    locked: 0
+  - name: Zombies
+    uniqueID: 2242192329
+    locked: 0
+  - name: Items
+    uniqueID: 1801500755
+    locked: 0
+  - name: Player
+    uniqueID: 1942323073
     locked: 0
