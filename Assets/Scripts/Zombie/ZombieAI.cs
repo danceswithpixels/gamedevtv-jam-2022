@@ -23,10 +23,9 @@ public class ZombieAI : MonoBehaviour
 
     public GameObject FindClosestEnemy()
     {
-        GameObject[] gameObjects;
-        gameObjects = GameObject.FindGameObjectsWithTag("Patient");
+        List<GameObject> gameObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Patient"));
+        gameObjects.Add(GameObject.FindGameObjectWithTag("Player"));
 
-        //TODO: Add doctor to array
         GameObject closest = null;
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;

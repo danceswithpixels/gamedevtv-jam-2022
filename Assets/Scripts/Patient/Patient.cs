@@ -33,8 +33,10 @@ public class Patient : MonoBehaviour
 
     public void resetNeed() {
         numNeeds--;
-        need.SetActive(false);
-        need = null;
+        if (need != null) {
+            need.SetActive(false);
+            need = null;
+        }
     }
 
     public int getNumNeeds() {
