@@ -55,3 +55,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1827847015
+    locked: 0
+  - name: Background Objects
+    uniqueID: 3975976159
+    locked: 0
+  - name: Platforms
+    uniqueID: 2430767885
+    locked: 0
