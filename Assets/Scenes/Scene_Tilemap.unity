@@ -1532,6 +1532,8 @@ GameObject:
   - component: {fileID: 727095666}
   - component: {fileID: 727095668}
   - component: {fileID: 727095667}
+  - component: {fileID: 727095670}
+  - component: {fileID: 727095669}
   m_Layer: 8
   m_Name: Platforms Tilemap
   m_TagString: Untagged
@@ -3907,6 +3909,43 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &727095669
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727095665}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!19719996 &727095670
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727095665}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &942754147
 GameObject:
   m_ObjectHideFlags: 0
@@ -15577,7 +15616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234759867963922088, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4234759867963922094, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
       propertyPath: m_RootOrder
@@ -15625,7 +15664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234759867963922095, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAACYn+v2FvVFVgIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK5zDFWoTcEsMwOTBQQ1Jz8UVYbaxCllxaWIt/T0teQyonxHuvu1+3Wr4TLk0BiVV6pTlbKwbkW4/4M/nSa8k3uNCDkjt+g1rzyZnNvIgGzQe1XCE+9GFG5WA1T77Lg/DiAYJO8lTpfMkOECljDcIpFQaQ0sr6aInQvUcu+NOf+5ArnkYzf7rhaT7oPfCYgLSgW2ktrGWlyslE0LwA5i234mmtHpcyic1UCm88UUJwUzkh9lqETiNaGId9oIBxip2F8sOX0RSRDPghs95oN36TpgZs5UrT64JrnFGZmPxQ5eByao6ltRMVDhrvZcr1P2x/GOhUq/ytrjoc+Ao248nxg14Tamxnrl140XEe5nOm4kj3Aj4zkO9qpZWTDEmrnQ91BkaL9m/TWJRBcmzx0uoT6Ir/347v4RF6v0SC53tPvUxKYCdUGHi4e9B4NT/RcNgMU6VA1Lv4beAXPXRXqCJeuTYWqapL6e3tldNeSpZhZr4bZyOlJQS4Ml2ApMJet5jGPl/gE9cp+8S8Uv9YquIVV7+Bp5AAt/rB4InaqnNzWSZT5zWYbOOs4BJa0554xzlFSspyv7ozqcN2Tqc06YQdHGd/rxYZDEdzOp+Nh5PZZDSd0/5oOmZfU5YgAmM23pOwe1xin1RsS6PVePDWZJtc4p7V35DeStMi7DrT9Lzit1x1Rs5lqnaJBpCbMkNjHDQWwWfJlozjgHZgLZfhvsk9JkIlR2BxkygOnS4vVtO4zRKTgp+U9UhMovDRiImHm13eajhxOPvidbIHefwBUEsDBBQAAAgIAACYn+uJhldlbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgaGRZaKlubGhibmJkalloq6RqXGKRVpKMlAk1TjFOEkpFqi+pLIg1S8xNxWiJyCxJCMtMy8lMy9dz70oM8UdZLRSbC0AUEsBAi0AFAAACAgAAJif6/YW9UVWAgAAEwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif64mGV2VsAAAAeAAAAAkAJAAAAAAAAAAAAAAAowIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABaAwAAAAA=
+      value: UEsDBBQAAAgIAACYn+tI/Z2cXAIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55AyWxhySwzD5MBADZOaiy/CamMVsuTSwjbFv6cl29ghlRPN69fdrxf5k3BpSkit0kvN2UoxIN97xNvkS691vsCZ7pXc8is0nA/ObO5JNHDeqOUK8YEPM6oAq3n6Q+6FJ0cIOskzpYsF20OsjDUIZ1QYQJdW1kdLhD575Iw//ZkPuaA1nHrritYs6t3QTEFa0C21ITa0iuVkKmhRAvOSW/KkYY8qmsRmaoYXniohuKmVEHspQ6cxLY3DPpDAOMXOQvno69MIkRz4PrdeaDd+nWUGbK1K08uca5xRlZj8VNXgCmoOlbQjFc6XGk6+BVlV0tU//v4guDOtipem7iDyNWzO08MbvaTU2M5ku/C81T4IEzpRcaA7AR85yFe11MpJhk6rnQ91Bobz9u+9tTiH9NDildQH0JX/34/v4Ra6P8eCF7swynEFbIUKIw/bB43L+YWCw22YOgWiXsVvA+903z2i2vHMtbHoqruUXt5OOe2pZBFm5rtxNlZaQoBr0SVIKuxlg2ns4woffJ2yD55n6p9LXbz2Na/gISTALT+KHlwbdbovy+TqtAKTr50VXEIr2jtecU6xkrK6sO5MmrCt0xlNO2F7x9nfp0WiwXBGZ9PRYDwdDycz2h9ORuwpYykiMGKjHQm3xyX2ScWmElqPB7cm2+QS76z5ivSWmpbh2pmmpyW/Fqozci4ztU01gFxXGe7CQWMRfJhswTgOaAvWchn2TT4TIlR6AJbcEyWh08XZapq0WRJS8qOyHklIHD4bCfHw/ZY3Go4cTr54k+xGbn8AUEsDBBQAAAgIAACYn+uJhldlbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgaGRZaKlubGhibmJkalloq6RqXGKRVpKMlAk1TjFOEkpFqi+pLIg1S8xNxWiJyCxJCMtMy8lMy9dz70oM8UdZLRSbC0AUEsBAi0AFAAACAgAAJif60j9nZxcAgAAFQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif64mGV2VsAAAAeAAAAAkAJAAAAAAAAAAAAAAAqQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
