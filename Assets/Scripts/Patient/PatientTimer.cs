@@ -15,7 +15,7 @@ public class PatientTimer : MonoBehaviour
     [SerializeField] int getUpZombieSpeed = 10;
     [SerializeField] int getUpCuredSpeed = 30;
 
-    float timerValue;
+    public float timerValue;
     public bool patientAlive;
     public float fillFraction;
     Patient patientScript;
