@@ -51,7 +51,6 @@ TagManager:
   - 
   - 
   - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
@@ -64,4 +63,13 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 2430767885
+    locked: 0
+  - name: Zombies
+    uniqueID: 2242192329
+    locked: 0
+  - name: Items
+    uniqueID: 1801500755
+    locked: 0
+  - name: Player
+    uniqueID: 1942323073
     locked: 0
