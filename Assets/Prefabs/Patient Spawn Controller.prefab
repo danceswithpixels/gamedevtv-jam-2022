@@ -62,6 +62,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: pSpawn
       objectReference: {fileID: 0}
+    - target: {fileID: 5753181284955321350, guid: 8caa28fe693bf91469bc3663a845b57c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 631701339, guid: 9b4550d452cc54ad19b10e6e944d3d1b, type: 3}
+    - target: {fileID: 5753181284955321350, guid: 8caa28fe693bf91469bc3663a845b57c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6202498272486474129, guid: 8caa28fe693bf91469bc3663a845b57c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -156,7 +164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
