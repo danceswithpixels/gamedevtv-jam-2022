@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip audioDropItem;
 
     static ArrayList itemTags = new ArrayList{"iBandage","iBone","iMedkit","iSaw","iSyringe"};
+    bool isGamePaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if(isGamePaused) { return; }
         moveInput = value.Get<Vector2>();
     }
 
@@ -140,5 +142,24 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
+    }
+
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0;
+        AudioListener.volume = 0f;
+    }
+
+    public void UnPauseGame() 
+    {
+        isGamePaused = false;
+        Time.timeScale = 1;
+        AudioListener.volume = 1f;
+    }
+
+    public bool IsGamePaused() 
+    {
+        return isGamePaused;
     }
 }
