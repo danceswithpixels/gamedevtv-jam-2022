@@ -12,9 +12,13 @@ public class PlayerMovement : MonoBehaviour
     GameObject touchingItem;
     bool holdingItem;
     Patient currentPatient;
+    AudioSource audioSource;
 
     [SerializeField] Transform item;
     [SerializeField] float walkSpeed = 5;
+    [SerializeField] AudioClip audioUseItem;
+    [SerializeField] AudioClip audioPickUpItem;
+    [SerializeField] AudioClip audioDropItem;
 
     static ArrayList itemTags = new ArrayList{"iBandage","iBone","iMedkit","iSaw","iSyringe"};
 
@@ -26,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -107,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             if (!holdingItem) 
             {
                     Debug.Log("Can pick up");
+                    audioSource.PlayOneShot(audioPickUpItem);
                     holdingItem = !holdingItem;
                     touchingItem.transform.SetParent(gameObject.transform);
                     touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
@@ -117,12 +123,14 @@ public class PlayerMovement : MonoBehaviour
                 if (currentPatient != null && currentPatient.getNeed().tag == touchingItem.tag) 
                 {
                     Debug.Log("Apply item to patient");
+                    audioSource.PlayOneShot(audioUseItem);
                     currentPatient.resetNeed();
                     Destroy(touchingItem);
                     Debug.Log(touchingItem);
                 } else 
                 {
                     Debug.Log("Can drop up");
+                    audioSource.PlayOneShot(audioDropItem);
                     touchingItem.transform.SetParent(null);
                     touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                     
