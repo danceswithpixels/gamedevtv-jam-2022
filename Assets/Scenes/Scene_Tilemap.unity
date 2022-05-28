@@ -2879,14 +2879,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2878066702630987973, guid: a02e3eecf5fc00d40b10356db8ec0e25, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 2878066702630987979, guid: a02e3eecf5fc00d40b10356db8ec0e25, type: 3}
-      propertyPath: m_text
-      value: 'Game Over!\nYou saved: 5 Patients'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02e3eecf5fc00d40b10356db8ec0e25, type: 3}
 --- !u!1001 &4234759867433794923
