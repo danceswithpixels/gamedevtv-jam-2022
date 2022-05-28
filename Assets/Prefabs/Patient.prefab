@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2187eb5e71f2c14da8df3790baed88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expirationTime: 10
+  expirationTime: 15
   timerImage: {fileID: 1044333093281187987}
   patient: {fileID: 1044333093294055421}
   zombie: {fileID: 5227725337143788986, guid: 4f817270473324863b1e154700048bcf, type: 3}
