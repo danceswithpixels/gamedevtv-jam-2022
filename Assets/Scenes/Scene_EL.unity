@@ -950,6 +950,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5227725337143788985, guid: 4f817270473324863b1e154700048bcf, type: 3}
+      propertyPath: radius
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227725337143788985, guid: 4f817270473324863b1e154700048bcf, type: 3}
+      propertyPath: pickNextWaypointDist
+      value: 0.44
+      objectReference: {fileID: 0}
     - target: {fileID: 5227725337143788986, guid: 4f817270473324863b1e154700048bcf, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -3362,6 +3370,107 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1663629784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1031704887, guid: 598ec6d6b3d1844579f27b2ee94bcb90, type: 3}
+  m_PrefabInstance: {fileID: 1380068830338648197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1663629790
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663629784}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 26d83e54c0d724008930b2d7de88fe8a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1743708053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 885251685128683414, guid: 8caa28fe693bf91469bc3663a845b57c, type: 3}
@@ -4402,7 +4511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234759867963922094, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.27457768
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4234759867963922094, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4442,7 +4551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4234759867963922095, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAACYn+tI/Z2cXAIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55AyWxhySwzD5MBADZOaiy/CamMVsuTSwjbFv6cl29ghlRPN69fdrxf5k3BpSkit0kvN2UoxIN97xNvkS691vsCZ7pXc8is0nA/ObO5JNHDeqOUK8YEPM6oAq3n6Q+6FJ0cIOskzpYsF20OsjDUIZ1QYQJdW1kdLhD575Iw//ZkPuaA1nHrritYs6t3QTEFa0C21ITa0iuVkKmhRAvOSW/KkYY8qmsRmaoYXniohuKmVEHspQ6cxLY3DPpDAOMXOQvno69MIkRz4PrdeaDd+nWUGbK1K08uca5xRlZj8VNXgCmoOlbQjFc6XGk6+BVlV0tU//v4guDOtipem7iDyNWzO08MbvaTU2M5ku/C81T4IEzpRcaA7AR85yFe11MpJhk6rnQ91Bobz9u+9tTiH9NDildQH0JX/34/v4Ra6P8eCF7swynEFbIUKIw/bB43L+YWCw22YOgWiXsVvA+903z2i2vHMtbHoqruUXt5OOe2pZBFm5rtxNlZaQoBr0SVIKuxlg2ns4woffJ2yD55n6p9LXbz2Na/gISTALT+KHlwbdbovy+TqtAKTr50VXEIr2jtecU6xkrK6sO5MmrCt0xlNO2F7x9nfp0WiwXBGZ9PRYDwdDycz2h9ORuwpYykiMGKjHQm3xyX2ScWmElqPB7cm2+QS76z5ivSWmpbh2pmmpyW/Fqozci4ztU01gFxXGe7CQWMRfJhswTgOaAvWchn2TT4TIlR6AJbcEyWh08XZapq0WRJS8qOyHklIHD4bCfHw/ZY3Go4cTr54k+xGbn8AUEsDBBQAAAgIAACYn+uJhldlbAAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgaGRZaKlubGhibmJkalloq6RqXGKRVpKMlAk1TjFOEkpFqi+pLIg1S8xNxWiJyCxJCMtMy8lMy9dz70oM8UdZLRSbC0AUEsBAi0AFAAACAgAAJif60j9nZxcAgAAFQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif64mGV2VsAAAAeAAAAAkAJAAAAAAAAAAAAAAAqQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
+      value: UEsDBBQAAAgIAACYn+uKT2CSZgIAAB8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtVMtymzAU/RWP1nUG7LgO3bXEcbpw4onbyYaNjC5GYyExeviRjP+9VwIMdcsGcc59nPsQn4RLU0NulV5qzlaKAfk2Iv5Mvox68hlOdKfkhn9AZ/POmS29EQ02b9RyhXjs3YyqwGqef5c74Y0jBJ3khdLVgu0gVcYahAsqDCCllfXeEqHPETnha5x4lzOeJnN/+sBTEo0ueMxBWtC9aWcY3d3HCT7zOGkdGnsnc0GrGpgX37vNOr9pYyaxrNbCl5ArIbhpNRF7rkPNKa2Nw4rQgHGKNQYh0d3DFJES+K60XvLQ/7UoDNhWp6bnR66xW01g8kM1Layo2TfSDlQ4n2oy+xpkNUFX//DjONCFVtVzlzeOfA5b8nz/Rs85NXbQ4yH82GuPQ4eOVOzpVsB7CfJFLbVykiFptfOuzsDksf+8lpaWkO97vJF6A7r6P5Nq5+NruITqT6ng1bYZYgNshAotD3sAGofzEwWHLTFtCES9it8GftHdcJ1a4olrY5Fqq5Re3lY57U3JIvTMV+NsqrSEALeia5BU2PMaw9jbEd5wg7Q3zBP1F6dN3nLdfbhxCXBvH0U31Fodr8MypTquwJSvzgouoRftiRfsU6qkbDZs2JPObeN0QfOB285x9vdqkSieJDSZT+P7+f1kltDxZDZlDwXLEYEpm25J2D0usU4q1o3Qtj04NdkHl7hn3f9ktNS0DtvOND0u+UelBi3nslCbXAPI1ybCVThoTIIXky0YxwZtwFouw7zJZ0aEyvfAsmugLFS6OFlNsz5KRmp+UNYjGUnDDyQjHr7u8lrDgcPRJ++CXcjlD1BLAwQUAAAICAAAmJ/riYZXZWwAAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koGhkWWipbmxoYm5iZGpZaKukalxikVaSjJQJNU4xThJKRaovqSyINUvMTcVoicgsSQjLTMvJTMvXc+9KDPFHWS0UmwtAFBLAQItABQAAAgIAACYn+uKT2CSZgIAAB8FAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+uJhldlbAAAAHgAAAAJACQAAAAAAAAAAAAAALMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAagMAAAAA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5c5c64a82384f7b9e8ce98ec31cca3, type: 3}
