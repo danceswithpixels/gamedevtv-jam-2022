@@ -5,8 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_Patient.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Scene_01.unity
+    guid: 442c8b624d6034fd888eb29bd69697da
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d4bb77bcfce119c49aeb0d901d75a1b9, type: 2}
