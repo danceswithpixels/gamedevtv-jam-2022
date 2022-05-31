@@ -6,13 +6,12 @@ public class PatientSpawn : MonoBehaviour
 {
     public bool spawnAvailable = true;
     private int safeZone;
-    // Start is called before the first frame update
+
     void Start()
     {
         safeZone = FindObjectOfType<PatientSpawnController>().safeZone;
     }
 
-    // Update is called once per frame
     void Update()
     {
         spawnAvailable = checkSpawnSafety();

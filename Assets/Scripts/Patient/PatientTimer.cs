@@ -21,7 +21,6 @@ public class PatientTimer : MonoBehaviour
     Patient patientScript;
     AIPath aiPath;
 
-    // Start is called before the first frame update
     void Start()
     {
         patientAlive = true;
@@ -31,7 +30,6 @@ public class PatientTimer : MonoBehaviour
         aiPath = patient.GetComponent<AIPath>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         timerValue -= Time.deltaTime;

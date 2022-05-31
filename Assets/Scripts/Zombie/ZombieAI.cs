@@ -13,15 +13,9 @@ public class ZombieAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         aiPath.destination = player.transform.position;
-        // aiPath.destination = FindClosestEnemy().transform.position;
     }
 
     public GameObject FindClosestEnemy()

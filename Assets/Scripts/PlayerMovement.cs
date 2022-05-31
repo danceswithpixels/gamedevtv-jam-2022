@@ -23,19 +23,15 @@ public class PlayerMovement : MonoBehaviour
     static ArrayList itemTags = new ArrayList{"iBandage","iBone","iMedkit","iSaw","iSyringe"};
     bool isGamePaused = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
         audioSource = GetComponent<AudioSource>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         Walk();
@@ -71,8 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerHasHorizontalSpeed) 
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
-        }
-        
+        }  
     }
 
     void OnCollisionEnter2D(Collision2D other) {

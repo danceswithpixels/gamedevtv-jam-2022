@@ -10,16 +10,8 @@ public class Patient : MonoBehaviour
     
     void Awake() {
         numNeeds = Random.Range(1,4);
-        // numNeeds = 1;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (need == null && numNeeds > 0) {
