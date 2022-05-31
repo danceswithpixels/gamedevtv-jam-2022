@@ -34,7 +34,6 @@ public class DeathManager : MonoBehaviour
     }
 
     public void UnPauseAndLoadNextScene() {
-        Debug.Log("Clicked");
         playerMovement.UnPauseGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

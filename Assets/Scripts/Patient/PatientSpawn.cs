@@ -30,7 +30,6 @@ public class PatientSpawn : MonoBehaviour
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
-            Debug.Log(curDistance < safeZone);
             if (curDistance < safeZone)
             {
                 return false;

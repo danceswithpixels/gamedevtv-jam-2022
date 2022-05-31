@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
         {
-            Debug.Log("Touching Patient");
             currentPatient = other.gameObject.GetComponent<Patient>();
         }
     }
@@ -81,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D other) {
         if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
         {
-            Debug.Log("Leaving Patient");
             currentPatient = null;
         }
     }
@@ -108,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!holdingItem) 
             {
-                    Debug.Log("Can pick up");
                     audioSource.PlayOneShot(audioPickUpItem);
                     holdingItem = !holdingItem;
                     touchingItem.transform.SetParent(gameObject.transform);
@@ -119,14 +116,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (currentPatient != null && currentPatient.getNeed().tag == touchingItem.tag) 
                 {
-                    Debug.Log("Apply item to patient");
                     audioSource.PlayOneShot(audioUseItem);
                     currentPatient.resetNeed();
                     Destroy(touchingItem);
-                    Debug.Log(touchingItem);
                 } else 
                 {
-                    Debug.Log("Can drop up");
                     audioSource.PlayOneShot(audioDropItem);
                     touchingItem.transform.SetParent(null);
                     touchingItem.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
