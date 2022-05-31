@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
-    GameObject touchingItem;
-    bool holdingItem;
+    public GameObject touchingItem;
+    public bool holdingItem;
     Patient currentPatient;
     AudioSource audioSource;
 
@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerStay2D(Collider2D other) {
         if (itemTags.Contains(other.tag) && !holdingItem)
         {
             touchingItem = other.gameObject;
