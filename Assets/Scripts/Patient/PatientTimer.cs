@@ -25,7 +25,6 @@ public class PatientTimer : MonoBehaviour
     {
         patientAlive = true;
         patientScript = patient.GetComponent<Patient>();
-        expirationTime *= patientScript.getNumNeeds();
         timerValue = expirationTime;
         aiPath = patient.GetComponent<AIPath>();
     }
@@ -69,5 +68,10 @@ public class PatientTimer : MonoBehaviour
                 standingUp = false;
         }
         return standingUp;
+    }
+
+    public void ResetTimer()
+    {
+        timerValue = expirationTime;
     }
 }
