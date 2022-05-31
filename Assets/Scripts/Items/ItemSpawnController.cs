@@ -9,7 +9,6 @@ public class ItemSpawnController : MonoBehaviour
     GameObject[] itemSpawns;
     Dictionary<string, GameObject> tagToItemMap;
 
-    // Start is called before the first frame update
     void Start()
     {
         itemSpawns = GameObject.FindGameObjectsWithTag("iSpawn");
@@ -19,7 +18,6 @@ public class ItemSpawnController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         spawnItems();

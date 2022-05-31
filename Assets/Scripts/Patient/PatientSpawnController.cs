@@ -8,13 +8,12 @@ public class PatientSpawnController : MonoBehaviour
     [SerializeField] GameObject patientPrefab;
     public int safeZone = 20;
     GameObject[] patientSpawns;
-    // Start is called before the first frame update
+
     void Start()
     {
         patientSpawns = GameObject.FindGameObjectsWithTag("pSpawn");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameObject.FindGameObjectsWithTag("Patient").Length < maxPatients) {

@@ -20,13 +20,8 @@ public class ZombieCollisionDetector : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("collison entered with: " + other.gameObject.tag);
         if(other.gameObject.tag == "Player") {
-                //Get player object
-                //Get player health
-                //Decrement health
-                //Death screen
-                playerMovement.PauseGame();
+            playerMovement.PauseGame();
         } else if (other.gameObject.tag == "Patient") {
             other.gameObject.GetComponentInChildren<PatientTimer>().patientAlive = false;
         }

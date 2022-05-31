@@ -6,13 +6,12 @@ public class PatientSpawn : MonoBehaviour
 {
     public bool spawnAvailable = true;
     private int safeZone;
-    // Start is called before the first frame update
+
     void Start()
     {
         safeZone = FindObjectOfType<PatientSpawnController>().safeZone;
     }
 
-    // Update is called once per frame
     void Update()
     {
         spawnAvailable = checkSpawnSafety();
@@ -31,7 +30,6 @@ public class PatientSpawn : MonoBehaviour
         {
             Vector3 diff = go.transform.position - position;
             float curDistance = diff.sqrMagnitude;
-            Debug.Log(curDistance < safeZone);
             if (curDistance < safeZone)
             {
                 return false;

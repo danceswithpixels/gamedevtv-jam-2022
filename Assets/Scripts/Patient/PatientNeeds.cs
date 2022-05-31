@@ -11,7 +11,6 @@ public class PatientNeeds : MonoBehaviour
     public float floatStrength = 0.1f;
     public float floatSpeed = 10f;
 
-    // Start is called before the first frame update
     void Start()
     {
         patientScript = patient.GetComponent<Patient>();
@@ -19,7 +18,6 @@ public class PatientNeeds : MonoBehaviour
         this.originalY = this.transform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (patientScript.getNumNeeds()) {
@@ -28,7 +26,6 @@ public class PatientNeeds : MonoBehaviour
             case 1: spriteRenderer.color = Color.green; break;
             default: spriteRenderer.enabled = false; break;
         }
-        
 
         transform.position = new Vector3(
             transform.position.x,
