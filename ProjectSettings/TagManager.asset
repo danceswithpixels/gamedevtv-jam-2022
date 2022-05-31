@@ -66,11 +66,11 @@ TagManager:
   - name: Platforms
     uniqueID: 2430767885
     locked: 0
-  - name: Zombies
-    uniqueID: 2242192329
-    locked: 0
   - name: Items
     uniqueID: 1801500755
+    locked: 0
+  - name: Zombies
+    uniqueID: 2242192329
     locked: 0
   - name: Player
     uniqueID: 1942323073
