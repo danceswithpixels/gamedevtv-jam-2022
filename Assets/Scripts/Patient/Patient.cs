@@ -7,9 +7,11 @@ public class Patient : MonoBehaviour
     [SerializeField] GameObject[] needs;
     GameObject need;
     int numNeeds;
+    PatientTimer patientTimer;
     
     void Awake() {
         numNeeds = Random.Range(1,4);
+        patientTimer = FindObjectOfType<PatientTimer>();
     }
 
     void Update()
@@ -30,6 +32,7 @@ public class Patient : MonoBehaviour
             need.SetActive(false);
             need = null;
         }
+        patientTimer.ResetTimer();
     }
 
     public int getNumNeeds() {
