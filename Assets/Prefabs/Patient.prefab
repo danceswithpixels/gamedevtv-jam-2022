@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1044333092573937721}
   m_Layer: 0
   m_Name: Needs (Bone)
-  m_TagString: iBone
+  m_TagString: nBone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1044333092891285385}
   m_Layer: 0
   m_Name: Needs (Saw)
-  m_TagString: iSaw
+  m_TagString: nSaw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1044333092951989532}
   m_Layer: 0
   m_Name: Needs (Medkit)
-  m_TagString: iMedkit
+  m_TagString: nMedkit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 1044333093589931437}
   m_Layer: 0
   m_Name: Needs (Syringe)
-  m_TagString: iSyringe
+  m_TagString: nSyringe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 1044333094021754456}
   m_Layer: 0
   m_Name: Needs (Bandage)
-  m_TagString: iBandage
+  m_TagString: nBandage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
