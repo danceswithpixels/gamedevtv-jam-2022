@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         
             } else if (holdingItem)
             {
-                if (currentPatient != null && currentPatient.getNeed().tag == touchingItem.tag) 
+                if (currentPatient != null && (currentPatient.getNeed().tag.EndsWith(touchingItem.tag.Substring(1)))) 
                 {
                     audioSource.PlayOneShot(audioUseItem);
                     currentPatient.resetNeed();
