@@ -16,14 +16,14 @@ public class ItemSpawnController : MonoBehaviour
         foreach (GameObject item in items) {
             tagToItemMap.Add(item.tag, item);
         }
+        spawnItems();
     }
 
     void Update()
     {
-        spawnItems();
     }
 
-    void spawnItems() {
+    public void spawnItems() {
         List<GameObject> spawns = new List<GameObject>(itemSpawns);
         List<GameObject> availableSpawns = new List<GameObject>();
 
