@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool holdingItem;
     Patient currentPatient;
     AudioSource audioSource;
+    ItemSpawnController itemSpawnController;
 
     [SerializeField] Transform item;
     [SerializeField] float walkSpeed = 5;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
         audioSource = GetComponent<AudioSource>();
+        itemSpawnController = FindObjectOfType<ItemSpawnController>();
     }
 
     void Update()
@@ -118,7 +120,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     audioSource.PlayOneShot(audioUseItem);
                     currentPatient.resetNeed();
-                    Destroy(touchingItem);
+                    DestroyImmediate(touchingItem);
+                    itemSpawnController.spawnItems();
                 } else 
                 {
                     audioSource.PlayOneShot(audioDropItem);
