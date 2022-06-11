@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidBody;
     Animator myAnimator;
-    CapsuleCollider2D myBodyCollider;
     public GameObject touchingItem;
     public bool holdingItem;
     Patient currentPatient;
@@ -28,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myBodyCollider = GetComponent<CapsuleCollider2D>();
         holdingItem = false;
         audioSource = GetComponent<AudioSource>();
         itemSpawnController = FindObjectOfType<ItemSpawnController>();
@@ -72,30 +70,21 @@ public class PlayerMovement : MonoBehaviour
         }  
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.tag == "Patient") 
         {
             currentPatient = other.gameObject.GetComponent<Patient>();
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D other) {
-        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Patient"))) 
-        {
-            currentPatient = null;
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other) {
-        if (itemTags.Contains(other.tag) && !holdingItem)
+        } else if (itemTags.Contains(other.tag) && !holdingItem)
         {
             touchingItem = other.gameObject;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
-
-        if (!holdingItem) 
+        if (other.tag == "Patient")
+        {
+            currentPatient = null;
+        } else if (!holdingItem) 
         {
             touchingItem = null;
         }
