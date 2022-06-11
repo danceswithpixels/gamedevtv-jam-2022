@@ -20,7 +20,7 @@ public class ZombieCollisionDetector : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == "Player" && other.collider.GetType() == typeof(CapsuleCollider2D)) {
             playerMovement.PauseGame();
         } else if (other.gameObject.tag == "Patient") {
             other.gameObject.GetComponentInChildren<PatientTimer>().patientAlive = false;
